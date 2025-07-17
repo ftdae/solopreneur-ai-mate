@@ -68,7 +68,7 @@ const Index = () => {
   const handleSetupAutomation = (areaTitle: string) => {
     toast({
       title: "Automation Setup",
-      description: `Setting up new automation for ${areaTitle}...`,
+      description: `Setting up new automation for ${areaTitle}... Opening configuration wizard.`,
     });
   };
 

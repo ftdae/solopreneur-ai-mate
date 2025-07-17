@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useToast } from "@/hooks/use-toast";
 import { Clock, CheckCircle, AlertCircle, Zap } from "lucide-react";
 
 const pendingActions = [
@@ -31,12 +32,23 @@ const pendingActions = [
 ];
 
 export const ActionCenter = () => {
+  const { toast } = useToast();
+
   const handleApprove = (actionId: number) => {
     console.log(`Approved action ${actionId}`);
+    toast({
+      title: "Action Approved",
+      description: `Successfully approved action ${actionId}`,
+    });
   };
 
   const handleSkip = (actionId: number) => {
     console.log(`Skipped action ${actionId}`);
+    toast({
+      title: "Action Skipped",
+      description: `Action ${actionId} has been skipped`,
+      variant: "destructive"
+    });
   };
 
   return (

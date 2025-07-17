@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useToast } from "@/hooks/use-toast";
 import { Brain, TrendingUp, AlertTriangle, Lightbulb } from "lucide-react";
 
 const insights = [
@@ -34,8 +35,13 @@ const insights = [
 ];
 
 export const AIInsights = () => {
+  const { toast } = useToast();
+
   const handleImplement = (insightTitle: string) => {
-    console.log(`Implementing: ${insightTitle}`);
+    toast({
+      title: "Implementing AI Insight",
+      description: `Starting implementation of: ${insightTitle}`,
+    });
   };
 
   return (
